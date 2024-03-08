@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application' // Add this line to apply the application plugin
+}
+
+application {
+    // Specify the main class for your application
+    mainClassName = 'org.example.Main' // Adjust the package and class name as needed
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.nocrala.tools.texttablefmt:text-table-formatter:1.2.4'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    implementation 'org.postgresql:postgresql:42.2.23'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
